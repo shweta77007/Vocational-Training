@@ -1,0 +1,768 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+<style>
+
+.analytics-title{
+
+font-family:'Cinzel',serif;
+
+font-size:2.5rem;
+
+font-weight:700;
+
+text-align:center;
+
+margin-bottom:10px;
+
+}
+
+.analytics-subtitle{
+
+text-align:center;
+
+color:#555;
+
+margin-bottom:40px;
+
+font-size:18px;
+
+}
+
+.summary-card{
+
+min-height:180px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+text-align:center;
+
+animation:cardRise .8s forwards;
+
+opacity:0;
+
+}
+
+.summary-card:nth-child(1){animation-delay:.1s;}
+.summary-card:nth-child(2){animation-delay:.25s;}
+.summary-card:nth-child(3){animation-delay:.4s;}
+.summary-card:nth-child(4){animation-delay:.55s;}
+
+@keyframes cardRise{
+
+from{
+
+opacity:0;
+
+transform:translateY(45px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:none;
+
+}
+
+}
+
+.summary-icon{
+
+font-size:3.5rem;
+
+margin-bottom:10px;
+
+animation:float 3s infinite ease-in-out;
+
+}
+
+@keyframes float{
+
+0%{transform:translateY(0);}
+50%{transform:translateY(-8px);}
+100%{transform:translateY(0);}
+
+}
+
+.big-number{
+
+font-size:2rem;
+
+font-weight:700;
+
+margin-top:10px;
+
+}
+
+.chart-box{
+
+padding:20px;
+
+background:#fff7db;
+
+border:3px solid black;
+
+border-radius:22px;
+
+box-shadow:0 8px 0 black;
+
+animation:fadeChart .8s;
+
+}
+
+.chart-box h5{
+
+font-family:'Cinzel',serif;
+
+font-weight:700;
+
+margin-bottom:20px;
+
+}
+
+@keyframes fadeChart{
+
+from{
+
+opacity:0;
+
+transform:translateY(35px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:none;
+
+}
+
+}
+
+.workflow-card{
+
+margin-top:35px;
+
+padding:35px;
+
+background:#f9efc9;
+
+border:3px solid black;
+
+border-radius:24px;
+
+box-shadow:0 8px 0 black;
+
+animation:fadeChart 1s;
+
+}
+
+.workflow-card h3{
+
+text-align:center;
+
+margin-bottom:30px;
+
+font-family:'Cinzel',serif;
+
+}
+
+.step{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+flex-direction:column;
+
+font-weight:600;
+
+font-size:18px;
+
+margin-bottom:15px;
+
+}
+
+.arrow{
+
+font-size:28px;
+
+color:#b88b25;
+
+margin:5px 0;
+
+}
+
+</style>
+
+<h2 class="analytics-title">
+
+👑 Employee Salary Analytics
+
+</h2>
+
+<p class="analytics-subtitle">
+
+Executive Dashboard for Salary Insights & Workforce Analytics
+
+</p>
+
+<div class="row g-4 mb-5">
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card summary-card">
+
+<div class="card-body">
+
+<div class="summary-icon">
+
+🏢
+
+</div>
+
+<h5>Departments</h5>
+
+<div class="big-number">
+
+{{ dept_labels|length }}
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card summary-card">
+
+<div class="card-body">
+
+<div class="summary-icon">
+
+👨‍💼
+
+</div>
+
+<h5>Total Employees</h5>
+
+<div class="big-number">
+
+{{ count_values|sum }}
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card summary-card">
+
+<div class="card-body">
+
+<div class="summary-icon">
+
+💰
+
+</div>
+
+<h5>Highest Salary</h5>
+
+<div class="big-number">
+
+₹{{ "{:,}".format(top_values[0]) }}
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card summary-card">
+
+<div class="card-body">
+
+<div class="summary-icon">
+
+📊
+
+</div>
+
+<h5>Total Charts</h5>
+
+<div class="big-number">
+
+4
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="col-lg-6 mb-4">
+
+<div class="chart-box">
+
+<h5 class="text-center">
+
+💰 Department-wise Average Salary
+
+</h5>
+
+<canvas id="deptChart"></canvas>
+
+</div>
+
+</div>
+
+<div class="col-lg-6 mb-4">
+
+<div class="chart-box">
+
+<h5 class="text-center">
+
+🥧 Employee Distribution
+
+</h5>
+
+<canvas id="countChart"></canvas>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="col-lg-6 mb-4">
+
+<div class="chart-box">
+
+<h5 class="text-center">
+
+📈 Experience Distribution
+
+</h5>
+
+<canvas id="experienceChart"></canvas>
+
+</div>
+
+</div>
+
+<div class="col-lg-6 mb-4">
+
+<div class="chart-box">
+
+<h5 class="text-center">
+
+🏆 Top 5 Highest Salaries
+
+</h5>
+
+<canvas id="topSalaryChart"></canvas>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="workflow-card">
+
+<h3>
+
+👑 Project Workflow
+
+</h3>
+
+<div class="step">
+
+📤 Upload Employee CSV
+
+</div>
+
+<div class="arrow">⬇</div>
+
+<div class="step">
+
+📖 Read CSV using Pandas
+
+</div>
+
+<div class="arrow">⬇</div>
+
+<div class="step">
+
+🧮 Salary Analysis
+
+</div>
+
+<div class="arrow">⬇</div>
+
+<div class="step">
+
+📊 Generate Statistics
+
+</div>
+
+<div class="arrow">⬇</div>
+
+<div class="step">
+
+📈 Create Interactive Charts
+
+</div>
+
+<div class="arrow">⬇</div>
+
+<div class="step">
+
+👑 Display Royal Dashboard
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+Chart.defaults.font.family="Poppins";
+
+Chart.defaults.color="#222";
+
+Chart.defaults.plugins.legend.labels.usePointStyle=true;
+
+Chart.defaults.plugins.legend.labels.padding=18;
+
+Chart.defaults.plugins.legend.position="bottom";
+
+const gold="#E0B94E";
+const darkGold="#C79A2B";
+const cream="#F8E7A3";
+const brown="#6B4F1D";
+
+
+// Department Average Salary
+
+new Chart(document.getElementById("deptChart"),{
+
+type:"bar",
+
+data:{
+
+labels:{{ dept_labels|tojson }},
+
+datasets:[{
+
+label:"Average Salary",
+
+data:{{ dept_values|tojson }},
+
+backgroundColor:gold,
+
+borderColor:brown,
+
+borderWidth:2,
+
+borderRadius:12,
+
+hoverBackgroundColor:darkGold
+
+}]
+
+},
+
+options:{
+
+responsive:true,
+
+maintainAspectRatio:true,
+
+animation:{
+
+duration:1800,
+
+easing:"easeOutBounce"
+
+},
+
+plugins:{
+
+title:{
+
+display:false
+
+}
+
+},
+
+scales:{
+
+y:{
+
+beginAtZero:true,
+
+grid:{
+
+color:"#ddd"
+
+}
+
+},
+
+x:{
+
+grid:{
+
+display:false
+
+}
+
+}
+
+}
+
+}
+
+});
+
+
+
+
+// Employee Distribution
+
+new Chart(document.getElementById("countChart"),{
+
+type:"pie",
+
+data:{
+
+labels:{{ count_labels|tojson }},
+
+datasets:[{
+
+data:{{ count_values|tojson }},
+
+backgroundColor:[
+
+"#E0B94E",
+
+"#C79A2B",
+
+"#F5D76E",
+
+"#9E7B20",
+
+"#FFE9A8",
+
+"#B18A2C"
+
+],
+
+borderColor:"#000",
+
+borderWidth:2,
+
+hoverOffset:15
+
+}]
+
+},
+
+options:{
+
+responsive:true,
+
+animation:{
+
+animateRotate:true,
+
+duration:2000
+
+}
+
+}
+
+});
+
+
+
+
+
+
+// Experience Distribution
+
+new Chart(document.getElementById("experienceChart"),{
+
+type:"bar",
+
+data:{
+
+labels:{{ exp_labels|tojson }},
+
+datasets:[{
+
+label:"Employees",
+
+data:{{ exp_values|tojson }},
+
+backgroundColor:cream,
+
+borderColor:brown,
+
+borderWidth:2,
+
+borderRadius:12,
+
+hoverBackgroundColor:gold
+
+}]
+
+},
+
+options:{
+
+responsive:true,
+
+animation:{
+
+duration:1800,
+
+easing:"easeOutElastic"
+
+},
+
+plugins:{
+
+legend:{
+
+display:false
+
+}
+
+},
+
+scales:{
+
+y:{
+
+beginAtZero:true
+
+}
+
+}
+
+}
+
+});
+
+
+
+
+
+
+
+// Top Salary
+
+new Chart(document.getElementById("topSalaryChart"),{
+
+type:"bar",
+
+data:{
+
+labels:{{ top_labels|tojson }},
+
+datasets:[{
+
+label:"Salary",
+
+data:{{ top_values|tojson }},
+
+backgroundColor:gold,
+
+borderColor:"#000",
+
+borderWidth:2,
+
+borderRadius:10,
+
+hoverBackgroundColor:darkGold
+
+}]
+
+},
+
+options:{
+
+indexAxis:"y",
+
+responsive:true,
+
+animation:{
+
+duration:2000,
+
+easing:"easeOutQuart"
+
+},
+
+plugins:{
+
+legend:{
+
+display:false
+
+}
+
+},
+
+scales:{
+
+x:{
+
+beginAtZero:true
+
+}
+
+}
+
+}
+
+});
+
+</script>
+
+{% endblock %}

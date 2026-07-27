@@ -1,0 +1,331 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+
+.records-title{
+
+font-family:'Cinzel',serif;
+
+font-size:2.4rem;
+
+font-weight:700;
+
+text-align:center;
+
+margin-bottom:10px;
+
+color:#2b2b2b;
+
+}
+
+.records-subtitle{
+
+text-align:center;
+
+color:#666;
+
+margin-bottom:35px;
+
+}
+
+.search-section{
+
+background:#f7ebbe;
+
+padding:25px;
+
+border:3px solid black;
+
+border-radius:22px;
+
+box-shadow:0 8px 0 black;
+
+margin-bottom:30px;
+
+animation:slideDown .7s;
+
+}
+
+@keyframes slideDown{
+
+from{
+
+opacity:0;
+
+transform:translateY(-35px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:none;
+
+}
+
+}
+
+.table-card{
+
+background:#fff8df;
+
+padding:25px;
+
+border-radius:22px;
+
+border:3px solid black;
+
+box-shadow:0 8px 0 black;
+
+animation:fadeTable .8s;
+
+}
+
+@keyframes fadeTable{
+
+from{
+
+opacity:0;
+
+transform:translateY(35px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:none;
+
+}
+
+}
+
+#employeeTable tbody tr{
+
+transition:.25s;
+
+}
+
+#employeeTable tbody tr:hover{
+
+background:#ffe699;
+
+transform:scale(1.01);
+
+}
+
+.table th{
+
+text-align:center;
+
+vertical-align:middle;
+
+font-weight:700;
+
+}
+
+.table td{
+
+text-align:center;
+
+vertical-align:middle;
+
+font-weight:500;
+
+}
+
+#searchInput{
+
+height:52px;
+
+font-size:17px;
+
+}
+
+.btn-add{
+
+padding:12px 28px;
+
+font-size:17px;
+
+}
+
+.badge-dept{
+
+background:#d8b24b;
+
+border:2px solid black;
+
+color:black;
+
+padding:7px 14px;
+
+border-radius:30px;
+
+font-size:14px;
+
+font-weight:600;
+
+}
+
+.salary{
+
+font-weight:700;
+
+font-size:17px;
+
+}
+
+</style>
+
+<div class="container mt-5">
+
+<h2 class="records-title">
+
+👑 Employee Records
+
+</h2>
+
+<p class="records-subtitle">
+
+Browse, Search and Manage Employee Information
+
+</p>
+
+<div class="search-section">
+
+<div class="row align-items-center">
+
+<div class="col-md-8 mb-3 mb-md-0">
+
+<input
+
+type="text"
+
+id="searchInput"
+
+class="form-control"
+
+placeholder="🔍 Search Employee by ID, Name or Department">
+
+</div>
+
+<div class="col-md-4 text-end">
+
+<a href="/add-employee" class="btn btn-success btn-add">
+
+➕ Add Employee
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="table-card">
+
+<div class="table-responsive">
+
+<table class="table table-hover align-middle" id="employeeTable">
+
+<thead>
+
+<tr>
+
+<th>Employee ID</th>
+
+<th>Name</th>
+
+<th>Department</th>
+
+<th>Experience</th>
+
+<th>Salary</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for employee in employees %}
+
+<tr>
+
+<td>
+
+<strong>{{ employee.EmployeeID }}</strong>
+
+</td>
+
+<td>
+
+{{ employee.Name }}
+
+</td>
+
+<td>
+
+<span class="badge-dept">
+
+{{ employee.Department }}
+
+</span>
+
+</td>
+
+<td>
+
+{{ employee.Experience }} Years
+
+</td>
+
+<td class="salary">
+
+₹{{ "{:,}".format(employee.Salary) }}
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+const searchInput=document.getElementById("searchInput");
+
+searchInput.addEventListener("keyup",function(){
+
+let filter=this.value.toLowerCase();
+
+let rows=document.querySelectorAll("#employeeTable tbody tr");
+
+rows.forEach(function(row){
+
+let text=row.textContent.toLowerCase();
+
+row.style.display=text.includes(filter)?"":"none";
+
+});
+
+});
+
+</script>
+
+{% endblock %}

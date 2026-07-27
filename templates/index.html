@@ -1,0 +1,303 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+
+.dashboard-title{
+    font-family:'Cinzel',serif;
+    font-size:2.5rem;
+    font-weight:700;
+    color:#2a2a2a;
+    text-shadow:2px 2px 0 #fff;
+    margin-bottom:40px;
+}
+
+.dashboard-subtitle{
+    color:#555;
+    margin-top:-15px;
+    margin-bottom:40px;
+}
+
+.stat-card{
+
+    min-height:220px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    animation:popUp .8s ease forwards;
+
+    opacity:0;
+
+}
+
+.stat-card:nth-child(1){animation-delay:.1s;}
+.stat-card:nth-child(2){animation-delay:.3s;}
+.stat-card:nth-child(3){animation-delay:.5s;}
+.stat-card:nth-child(4){animation-delay:.7s;}
+
+@keyframes popUp{
+
+from{
+
+opacity:0;
+transform:translateY(50px) scale(.9);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0) scale(1);
+
+}
+
+}
+
+.card-body h5{
+
+font-weight:700;
+
+font-size:1.2rem;
+
+margin-top:15px;
+
+}
+
+.salary-value{
+
+font-size:2rem;
+
+font-weight:700;
+
+margin-top:15px;
+
+}
+
+.card-icon{
+
+font-size:3.7rem;
+
+margin-bottom:8px;
+
+animation:floatIcon 3s ease-in-out infinite;
+
+}
+
+@keyframes floatIcon{
+
+0%{transform:translateY(0);}
+50%{transform:translateY(-8px);}
+100%{transform:translateY(0);}
+
+}
+
+.dashboard-btns{
+
+margin-top:45px;
+
+}
+
+.dashboard-btns .btn{
+
+padding:12px 28px;
+
+font-size:17px;
+
+margin:10px;
+
+}
+
+.welcome-card{
+
+background:#f7ebbe;
+
+border:3px solid black;
+
+border-radius:22px;
+
+padding:30px;
+
+margin-bottom:40px;
+
+text-align:center;
+
+box-shadow:0 8px 0 black;
+
+}
+
+.welcome-card h4{
+
+font-family:'Cinzel',serif;
+
+font-weight:700;
+
+margin-bottom:15px;
+
+}
+
+.welcome-card p{
+
+font-size:17px;
+
+margin-bottom:0;
+
+}
+
+</style>
+
+<div class="container mt-5">
+
+<div class="welcome-card">
+
+<h2 class="dashboard-title">
+
+Employee Salary Analyzer
+
+</h2>
+
+<p class="dashboard-subtitle">
+
+A Royal Dashboard for Monitoring Employee Salaries, Department Insights & Workforce Analytics
+
+</p>
+
+</div>
+
+<div class="row g-4">
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card stat-card">
+
+<div class="card-body">
+
+<div class="card-icon">
+
+👨‍💼
+
+</div>
+
+<h5>Total Employees</h5>
+
+<div class="salary-value">
+
+{{ total_employees }}
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card stat-card">
+
+<div class="card-body">
+
+<div class="card-icon">
+
+💰
+
+</div>
+
+<h5>Average Salary</h5>
+
+<div class="salary-value">
+
+₹{{ average_salary }}
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card stat-card">
+
+<div class="card-body">
+
+<div class="card-icon">
+
+📈
+
+</div>
+
+<h5>Highest Salary</h5>
+
+<div class="salary-value">
+
+₹{{ highest_salary }}
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card stat-card">
+
+<div class="card-body">
+
+<div class="card-icon">
+
+📉
+
+</div>
+
+<h5>Lowest Salary</h5>
+
+<div class="salary-value">
+
+₹{{ lowest_salary }}
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="dashboard-btns text-center">
+
+<a href="/employees" class="btn btn-primary">
+👨‍💼 View Employees
+</a>
+
+<a href="/analytics" class="btn btn-success">
+📊 View Analytics
+</a>
+
+<a href="/upload" class="btn btn-warning">
+📤 Upload CSV
+</a>
+
+<a href="/add-employee" class="btn btn-dark">
+➕ Add Employee
+</a>
+
+</div>
+
+</div>
+
+{% endblock %}

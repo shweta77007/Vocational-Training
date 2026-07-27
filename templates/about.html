@@ -1,0 +1,298 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+
+body{
+    background:#f8f9fa;
+}
+
+/* Typing Animation */
+
+.typing-text{
+
+    width:0;
+    overflow:hidden;
+    white-space:nowrap;
+    border-right:4px solid #0d6efd;
+
+    font-size:38px;
+    font-weight:bold;
+    color:#0d6efd;
+
+    margin:auto;
+
+    animation:
+        typing 4s steps(35,end) forwards,
+        blink .8s infinite;
+}
+
+@keyframes typing{
+
+    from{width:0;}
+
+    to{width:100%;}
+
+}
+
+@keyframes blink{
+
+    50%{
+
+        border-color:transparent;
+
+    }
+
+}
+
+/* Fade Animation */
+
+.fade-up{
+
+    animation:fadeUp 1.2s ease;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0px);
+
+    }
+
+}
+
+.card{
+
+    transition:.3s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-6px);
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
+
+}
+
+.section-title{
+
+    color:#0d6efd;
+    font-weight:bold;
+
+}
+
+</style>
+
+<div class="container mt-5 fade-up">
+
+    <div class="text-center mb-5">
+
+        <div class="typing-text">
+
+            👨‍💼 Employee Salary Analyzer
+
+        </div>
+
+    </div>
+
+    <div class="card shadow-lg">
+
+        <div class="card-body">
+
+            <h3 class="section-title">
+                About the Project
+            </h3>
+
+            <p class="mt-3">
+
+                The <b>Employee Salary Analyzer</b> is a web-based application
+                developed using <b>Python, Flask, Pandas, NumPy,
+                HTML, Bootstrap and Chart.js</b>.
+
+                The application enables organizations to upload employee
+                salary records, perform salary analysis and visualize
+                insights using interactive charts and dashboards.
+
+            </p>
+
+            <hr>
+
+            <h4 class="section-title">
+
+                🎯 Objectives
+
+            </h4>
+
+            <ul>
+
+                <li>Analyze employee salary records efficiently.</li>
+
+                <li>Calculate average, highest and lowest salaries.</li>
+
+                <li>Study salary distribution across departments.</li>
+
+                <li>Visualize employee data using interactive charts.</li>
+
+                <li>Provide a simple and user-friendly interface.</li>
+
+            </ul>
+
+            <hr>
+
+            <h4 class="section-title">
+
+                ✨ Features
+
+            </h4>
+
+            <ul>
+
+                <li>Dashboard displaying salary statistics.</li>
+
+                <li>Upload employee data through CSV files.</li>
+
+                <li>Add new employee records.</li>
+
+                <li>View complete employee details.</li>
+
+                <li>Department-wise Average Salary Analysis.</li>
+
+                <li>Employee Distribution by Department.</li>
+
+                <li>Experience Distribution Analysis.</li>
+
+                <li>Top 5 Highest Paid Employees.</li>
+
+                <li>Embedded Project Workflow.</li>
+
+            </ul>
+
+            <hr>
+
+            <h4 class="section-title">
+
+                🛠 Technologies Used
+
+            </h4>
+
+            <table class="table table-bordered table-hover">
+
+                <tr class="table-primary">
+
+                    <th>Technology</th>
+                    <th>Purpose</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>Python</td>
+                    <td>Backend Programming</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Flask</td>
+                    <td>Web Framework</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Pandas</td>
+                    <td>CSV Processing & Data Analysis</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>NumPy</td>
+                    <td>Numerical Calculations</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>HTML5</td>
+                    <td>Web Page Structure</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Bootstrap 5</td>
+                    <td>Responsive User Interface</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Chart.js</td>
+                    <td>Interactive Data Visualization</td>
+
+                </tr>
+
+            </table>
+
+            <hr>
+
+            <h4 class="section-title">
+
+                📈 Future Scope
+
+            </h4>
+
+            <ul>
+
+                <li>Employee Login & Admin Panel.</li>
+
+                <li>Performance Evaluation Module.</li>
+
+                <li>Monthly Salary Trend Analysis.</li>
+
+                <li>Department-wise Salary Comparison Reports.</li>
+
+                <li>Database Integration using MySQL.</li>
+
+                <li>Export Reports as PDF and Excel.</li>
+
+            </ul>
+
+            <hr>
+
+            <h4 class="section-title">
+
+                🏁 Conclusion
+
+            </h4>
+
+            <p>
+
+                The Employee Salary Analyzer simplifies salary data
+                management by combining employee record handling with
+                graphical analytics. It provides meaningful insights
+                into salary distribution, departmental performance,
+                and employee statistics through an intuitive and
+                responsive web application.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

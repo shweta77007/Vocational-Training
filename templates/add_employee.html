@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-7">
+
+            <div class="card shadow-lg">
+
+                <div class="card-header bg-success text-white text-center">
+
+                    <h3>➕ Add New Employee</h3>
+
+                </div>
+
+                <div class="card-body">
+
+                    <form method="POST">
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Employee Name
+                            </label>
+
+                            <input
+                                type="text"
+                                name="name"
+                                class="form-control"
+                                placeholder="Enter Employee Name"
+                                required>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Department
+                            </label>
+
+                            <select
+                                name="department"
+                                class="form-select"
+                                required>
+
+                                <option value="">Select Department</option>
+                                <option>HR</option>
+                                <option>IT</option>
+                                <option>Sales</option>
+                                <option>Marketing</option>
+                                <option>Finance</option>
+                                <option>Operations</option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Experience (Years)
+                            </label>
+
+                            <input
+                                type="number"
+                                name="experience"
+                                class="form-control"
+                                placeholder="Enter Experience"
+                                min="0"
+                                required>
+
+                        </div>
+
+                        <div class="mb-4">
+
+                            <label class="form-label">
+                                Salary (₹)
+                            </label>
+
+                            <input
+                                type="number"
+                                name="salary"
+                                class="form-control"
+                                placeholder="Enter Salary"
+                                min="0"
+                                required>
+
+                        </div>
+
+                        <div class="d-grid">
+
+                            <button
+                                type="submit"
+                                class="btn btn-success btn-lg">
+
+                                Add Employee
+
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

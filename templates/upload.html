@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-7">
+
+            <div class="card shadow-lg">
+
+                <div class="card-header bg-primary text-white text-center">
+
+                    <h3>📤 Upload Employee CSV</h3>
+
+                </div>
+
+                <div class="card-body">
+
+                    <form method="POST" enctype="multipart/form-data">
+
+                        <div class="mb-4">
+
+                            <label class="form-label">
+                                Select Employee CSV File
+                            </label>
+
+                            <input
+                                type="file"
+                                name="file"
+                                class="form-control"
+                                accept=".csv"
+                                required>
+
+                        </div>
+
+                        <div class="d-grid">
+
+                            <button
+                                type="submit"
+                                class="btn btn-success btn-lg">
+
+                                Upload CSV
+
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                    <hr>
+
+                    <div class="alert alert-info">
+
+                        <h5>CSV Format</h5>
+
+<pre class="mb-0">
+EmployeeID,Name,Department,Experience,Salary
+101,Aman,HR,2,35000
+102,Ankit,IT,5,70000
+103,Krish,IT,3,45000
+104,Kunal,Operations,7,90000
+105,Shweta,Sales,4,50000
+</pre>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
