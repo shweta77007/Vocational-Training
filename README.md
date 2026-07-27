@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="https://img1.picmix.com/output/stamp/normal/3/2/1/9/2259123_93e1f.gif" width="100%"/>
+
 # Employee Salary Analyzer
 
 ### Developed by **Shweta Chandravanshi**
@@ -146,7 +148,7 @@ python app.py
 
 Open your browser
 
-```
+```text
 http://127.0.0.1:5000
 ```
 
@@ -179,9 +181,7 @@ This project demonstrates:
 
 <div align="center">
 
-##  Developed by **Shweta Chandravanshi**
-
-
+## Developed by **Shweta Chandravanshi**
 
 </div>
 
