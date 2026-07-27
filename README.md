@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://img1.picmix.com/output/stamp/normal/3/2/1/9/2259123_93e1f.gif" width="100%"/>
+<img src="https://img1.picmix.com/output/stamp/normal/3/2/1/9/2259123_93e1f.gif" width="1200" height="220">"/>
 
 # Employee Salary Analyzer
 
