@@ -37,7 +37,7 @@ Built using **Python**, **Flask**, **Pandas**, and **NumPy**, the application en
 ## Dashboard
 
 <p align="center">
-<img src="images/dashboard.png" width="850">
+<img src="dashboard.png" width="850">
 </p>
 
 ---
@@ -45,7 +45,7 @@ Built using **Python**, **Flask**, **Pandas**, and **NumPy**, the application en
 ## Salary Analysis
 
 <p align="center">
-<img src="images/salary_analysis.png" width="850">
+<img src="analytics.png" width="850">
 </p>
 
 ---
