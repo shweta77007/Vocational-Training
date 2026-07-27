@@ -1,24 +1,18 @@
 <div align="center">
 
-# 💼 Employee Salary Analyzer
+# Employee Salary Analyzer
 
 ### Developed by **Shweta Chandravanshi**
 
-<img src="https://readme-typing-svg.demolab.com?font=Quicksand&weight=600&size=24&duration=3000&pause=1000&color=FF69B4&center=true&vCenter=true&width=700&lines=Employee+Salary+Analyzer;Python+%7C+Flask+%7C+Pandas;Simple+Salary+Analytics;Clean+%26+Elegant+Dashboard" alt="Typing SVG"/>
+<img src="https://readme-typing-svg.demolab.com?font=Quicksand&weight=600&size=24&duration=3000&pause=1000&color=FF69B4&center=true&vCenter=true&width=700&lines=Employee+Salary+Analyzer;Python+%7C+Flask+%7C+Pandas" alt="Typing SVG"/>
 
 <br>
-
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![Flask](https://img.shields.io/badge/Flask-000000?style=flat-square&logo=flask)
-![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat-square&logo=pandas)
-![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat-square&logo=numpy)
-![Matplotlib](https://img.shields.io/badge/Matplotlib-11557C?style=flat-square)
 
 </div>
 
 ---
 
-# 🌸 About
+# About
 
 **Employee Salary Analyzer** is a simple and user-friendly web application that helps analyze employee salary data efficiently.
 
@@ -26,21 +20,19 @@ Built using **Python**, **Flask**, **Pandas**, and **NumPy**, the application en
 
 ---
 
-# ✨ Features
+# Features
 
-- 💼 Upload Employee Salary Dataset
-- 📊 Analyze Salary Records
-- 💰 Average Salary Calculation
-- 📈 Statistical Summary
-- 📝 Dataset Validation
-- ⚡ Fast Data Processing
-- 🎨 Clean & Responsive Interface
+- Upload Employee Salary Dataset
+- Analyze Salary Records
+- Average Salary Calculation
+- Statistical Summary
+- Dataset Validation
+- Fast Data Processing
+- Clean & Responsive Interface
 
 ---
 
-# 🖼 Project Preview
-
-> Replace these placeholders with your own screenshots.
+# Project Preview
 
 ## Dashboard
 
@@ -58,7 +50,7 @@ Built using **Python**, **Flask**, **Pandas**, and **NumPy**, the application en
 
 ---
 
-# 🌷 Application Workflow
+# Application Workflow
 
 ```text
 Upload Employee Dataset
@@ -81,7 +73,7 @@ Display Dashboard
 
 ---
 
-# 📂 Project Structure
+# Project Structure
 
 ```text
 EmployeeSalaryAnalyzer/
@@ -105,18 +97,18 @@ EmployeeSalaryAnalyzer/
 
 ---
 
-# 📊 Analysis Performed
+# Analysis Performed
 
-- 💰 Average Salary
-- 📈 Maximum Salary
-- 📉 Minimum Salary
-- 📊 Salary Distribution
-- 📝 Statistical Summary
-- 📂 Data Validation
+- Average Salary
+- Maximum Salary
+- Minimum Salary
+- Salary Distribution
+- Statistical Summary
+- Data Validation
 
 ---
 
-# 🛠 Technology Stack
+# Technology Stack
 
 | Frontend | Backend | Libraries |
 |----------|----------|------------|
@@ -126,7 +118,7 @@ EmployeeSalaryAnalyzer/
 
 ---
 
-# 🚀 Installation
+# Installation
 
 Clone the repository
 
@@ -160,18 +152,18 @@ http://127.0.0.1:5000
 
 ---
 
-# 🌼 Future Improvements
+# Future Improvements
 
-- 📈 Interactive Charts
-- 📄 Export Reports as PDF
-- 📂 Excel File Support
-- ☁ Database Integration
-- 🔐 User Authentication
-- 📱 Mobile Responsive Dashboard
+- Interactive Charts
+- Export Reports as PDF
+- Excel File Support
+- Database Integration
+- User Authentication
+- Mobile Responsive Dashboard
 
 ---
 
-# 📚 Learning Outcomes
+# Learning Outcomes
 
 This project demonstrates:
 
@@ -185,25 +177,11 @@ This project demonstrates:
 
 ---
 
-# 🤝 Contributing
-
-Contributions are always welcome!
-
-1. Fork the repository
-2. Create a new feature branch
-3. Commit your changes
-4. Push your branch
-5. Open a Pull Request
-
----
-
 <div align="center">
 
-## 👩‍💻 Developed by **Shweta Chandravanshi**
+##  Developed by **Shweta Chandravanshi**
 
-*"Turning data into meaningful insights, one dataset at a time."* 🌸
 
-⭐ If you found this project helpful, consider giving it a **Star**.
 
 </div>
 
